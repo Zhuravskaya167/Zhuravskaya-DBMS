@@ -1,4 +1,4 @@
-#include "Стек.h"
+#include "Stack.h"
 #include <sstream>
 #include <string>
 
