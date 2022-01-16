@@ -9,13 +9,13 @@ namespace StackTests
 	{
 	public:
 
-		TEST_METHOD(TestConstructor)
+		TEST_METHOD(constructor_valid_data_succeed)
 		{
 			Stack a;
 			Assert::IsTrue(a.getSize() == 0);
 		}
 		
-		TEST_METHOD(Testpush)
+		TEST_METHOD(push_valid_data_succeed)
 		{
 			Stack a;
 			for (int i = 0; i++; i < 9) {
@@ -27,14 +27,14 @@ namespace StackTests
 			}
 		}
 		
-		TEST_METHOD(Testpop)
+		TEST_METHOD(pop_valid_data_succeed)
 		{
 			Stack a;
 			int k = -99 + rand() % 100;
 			a.push(k);
 			Assert::IsTrue(k == a.pop());
 		}
-		TEST_METHOD(TestGetSize)
+		TEST_METHOD(getSize_valid_data_succeed)
 		{
 			Stack a;
 			int k = -99 + rand() % 100;
@@ -42,7 +42,7 @@ namespace StackTests
 			Assert::IsTrue(a.getSize() == 1);
 		}
 		
-		TEST_METHOD(Testget)
+		TEST_METHOD(get_valid_data_succeed)
 		{
 			Stack a;
 			int k = -99 + rand() % 100;
@@ -50,7 +50,7 @@ namespace StackTests
 			Assert::IsTrue(k == a.get());
 		}
 		
-		TEST_METHOD(Testedit)
+		TEST_METHOD(edit_valid_data_succeed)
 		{
 			Stack a;
 			int k = -99 + rand() % 100;
@@ -58,6 +58,19 @@ namespace StackTests
 			k = -99 + rand() % 100;
 			a.edit(k);
 			Assert::IsTrue(k == a.get());
+		}
+
+		TEST_METHOD(operator_valid_data_succeed)
+		{
+			Stack a;
+			int k = -99 + rand() % 100;
+			a.push(k);
+			std::stringstream temp;
+			temp << k << " ";
+			std::string tempStr = temp.str();
+			std::stringstream out;
+			out << a;
+			Assert::IsTrue(tempStr == out.str());
 		}
 	};
 }

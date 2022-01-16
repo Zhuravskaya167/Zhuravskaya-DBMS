@@ -14,6 +14,31 @@ public:
 class Stack {
     Node* first, * last;
     size_t size;
+
+    /*!
+    \brief Запрет конструктора копирования.
+    \param[in] const Stack& - ссылка на Stack
+    */
+    Stack(const Stack&) = delete;
+
+    /*!
+    \brief Запрет оператора присваивания копирования.
+    \param[in] const Stack& - ссылка на Stack
+    */
+    Stack& operator=(const Stack&) = delete;
+
+    /*!
+    \brief Запрет конструктора перемещения.
+    \param[in] const Stack&& - ссылка на Stack
+    */
+    Stack(Stack&&) = delete;
+
+    /*!
+    \brief Запрет оператора присваивания перемещения.
+    \param[in] const Stack&& - ссылка на Stack
+    */
+    Stack& operator=(Stack&&) = delete;
+
 public:
     /*!
     \brief Метод является конструктором по умолчанию для класса Stack.
@@ -31,7 +56,7 @@ public:
     /*!
     \brief Метод возвращает количество элементов в стеке.
     */
-    size_t getSize();
+    size_t getSize() const;
     /*!
     \brief Метод изменяет последний элемент стека.
     \param[in] value - значение, которое будет записано в элементе стека.
@@ -40,6 +65,6 @@ public:
     /*!
     \brief Метод возвращает значение последнего элемента.
     */
-    int get();
+    int get() const;
     friend std::ostream& operator<< (std::ostream& out, Stack& Stack);
 };

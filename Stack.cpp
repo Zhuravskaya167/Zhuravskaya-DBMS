@@ -2,7 +2,7 @@
 #include <sstream>
 #include <string>
 
-size_t Stack::getSize() {
+size_t Stack::getSize() const {
     return size;
 };
 void Stack::push(const int value) {
@@ -39,7 +39,7 @@ void Stack::edit(const int value) {
     this->pop();
     this->push(value);
 };
-int Stack::get() {
+int Stack::get() const {
     return last->_value;
 };
 std::ostream& operator<< (std::ostream& out, Stack& Stack)
