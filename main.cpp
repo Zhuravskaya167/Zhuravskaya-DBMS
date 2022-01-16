@@ -12,7 +12,7 @@ void printMENU() {
     cout << "\nExit - q\n";
 }
 
-void printElements(Stack M) {
+void printElements(Stack& M) {
     if (M.getSize() == 0) {
         cout << "Stack is empty!" << endl;
     }
